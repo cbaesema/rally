@@ -1,4 +1,4 @@
-{% set flavor_name = flavor_name or "m1.tiny" %}
+{% set flavor_name = flavor_name or "m1.small" %}
 {
     "VMTasks.boot_runcommand_delete": [
         {
@@ -7,7 +7,7 @@
                     "name": "{{flavor_name}}"
                 },
                 "image": {
-                    "name": "^cirros.*uec$"
+                    "name": "Ubuntu Server 14.04"
                 },
                 "floating_network": "public",
                 "force_delete": false,
@@ -15,7 +15,7 @@
                     "interpreter": "/bin/sh",
                     "script_file": "samples/tasks/support/instance_dd_test.sh"
                 },
-                "username": "cirros"
+                "username": "ubuntu"
             },
             "runner": {
                 "type": "constant",
@@ -24,8 +24,8 @@
             },
             "context": {
                 "users": {
-                    "tenants": 3,
-                    "users_per_tenant": 2
+                    "tenants": 1,
+                    "users_per_tenant": 1
                 },
                 "network": {
                 }
